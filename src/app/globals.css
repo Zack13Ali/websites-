@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Palette taken from the concepts/ mockups. */
+@theme {
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+
+  --color-ink: #2a2622;
+  --color-muted: #5b534a;
+  --color-cream: #f7f3ec;
+  --color-sand: #efe7da;
+  --color-stone-line: #d9cfc0;
+  --color-paper: #fffdf9;
+  --color-brass: #a47a3c;
+  --color-forest: #23413a;
+  --color-forest-dk: #18302a;
+  --color-forest-tint: #e3ebe6;
+  --color-navy: #1f3a56;
+  --color-navy-dk: #152a40;
+  --color-navy-tint: #e2e9f1;
+}
+
+body {
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@layer components {
+  .input {
+    @apply block w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm shadow-xs focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-200;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-stone-300 bg-white px-3 py-2 text-sm font-medium text-stone-800 hover:bg-stone-50 disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-md bg-stone-900 px-3 py-2 text-sm font-medium text-white hover:bg-stone-700 disabled:opacity-50;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-red-300 bg-white px-3 py-2 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-50;
+  }
+}
