@@ -46,10 +46,10 @@ export const FaqSchema = z.object({
 export const SiteContentSchema = z.object({
   headline: text(...LIMITS.headline),
   subheadline: text(...LIMITS.subheadline),
-  services: z.array(ServiceSchema).min(4).max(6),
+  services: z.array(ServiceSchema).min(4, "needs 4 to 6 services").max(6, "needs 4 to 6 services"),
   about: text(...LIMITS.about),
-  serviceAreas: z.array(text(...LIMITS.area)).min(1).max(12),
-  faq: z.array(FaqSchema).min(4).max(5),
+  serviceAreas: z.array(text(...LIMITS.area)).min(1, "needs 1 to 12 areas").max(12, "needs 1 to 12 areas"),
+  faq: z.array(FaqSchema).min(4, "needs 4 or 5 questions").max(5, "needs 4 or 5 questions"),
   callToAction: z.object({
     heading: text(...LIMITS.ctaHeading),
     body: text(...LIMITS.ctaBody),

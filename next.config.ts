@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
       : [],
   },
   poweredByHeader: false,
+  experimental: {
+    // CSV uploads (2 MB max) and photos (resized in the browser, 4 MB max).
+    // Vercel caps request bodies at 4.5 MB.
+    serverActions: { bodySizeLimit: "4.5mb" },
+  },
   async headers() {
     return [
       { source: "/p/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
