@@ -44,7 +44,7 @@ export function resolveHost(rawHost: string | null | undefined, rawRoot: string)
 
   const bare = stripPort(host);
   if (bare === "localhost" || bare === "127.0.0.1" || bare.endsWith(".vercel.app")) return { kind: "app" };
-  if (!/^[a-z0-9.-]+$/.test(bare) || !bare.includes(".")) return { kind: "invalid" };
+  if (!/^[a-z0-9.-]+$/.test(bare) || !bare.includes(".") || bare.endsWith(".localhost")) return { kind: "invalid" };
   return { kind: "custom", domain: bare };
 }
 

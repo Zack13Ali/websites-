@@ -25,6 +25,7 @@ async function update(id: string, values: Record<string, unknown>): Promise<NonN
   const { error } = await supabaseAdmin().from("businesses").update(values).eq("id", id);
   if (error) return { ok: false, message: error.message };
   revalidatePath(`/admin/b/${id}`);
+  revalidatePath("/site/[key]", "layout"); // live sites cache for 60s otherwise
   return { ok: true, message: "Saved." };
 }
 
@@ -64,6 +65,7 @@ export async function regenerate(id: string): Promise<ActionResult> {
     return { ok: false, message };
   }
   revalidatePath(`/admin/b/${id}`);
+  revalidatePath("/site/[key]", "layout");
   return { ok: true, message: "New copy generated." };
 }
 
@@ -147,6 +149,7 @@ export async function markPaid(id: string, _prev: ActionResult, fd: FormData): P
     return { ok: false, message: err instanceof Error ? err.message : "Could not mark as paid" };
   }
   revalidatePath(`/admin/b/${id}`);
+  revalidatePath("/site/[key]", "layout");
   return { ok: true, message: `Marked as paid (${plan}). The site is live.` };
 }
 
