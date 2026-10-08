@@ -24,6 +24,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <Link href="/admin/import" className="hover:text-stone-900">
               Import CSV
             </Link>
+            <Link href="/admin/templates" className="hover:text-stone-900">
+              Templates
+            </Link>
           </nav>
           <form action={logout} className="ml-auto flex items-center gap-3 text-sm text-stone-500">
             <span className="hidden sm:inline">{user.email}</span>
