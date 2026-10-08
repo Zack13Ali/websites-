@@ -84,6 +84,8 @@ create table public.businesses (
 create index businesses_created_at_idx on public.businesses (created_at desc);
 create index businesses_status_idx on public.businesses (status);
 create index businesses_batch_idx on public.businesses (batch_id);
+-- One site per Google listing; a re-imported lead links to the existing site.
+create unique index businesses_place_id_key on public.businesses (place_id) where place_id is not null;
 
 -- ---------------------------------------------------------------------------
 -- import_jobs: one row per CSV row. This table IS the queue.

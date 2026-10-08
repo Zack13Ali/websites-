@@ -1,0 +1,23 @@
+{
+  "places": [
+    {
+      "id": "fixture_template",
+      "displayName": { "text": "Sample General Contractor", "languageCode": "en" },
+      "formattedAddress": "100 Main St, Springfield, TX 75000, USA",
+      "nationalPhoneNumber": "(555) 010-2000",
+      "internationalPhoneNumber": "+1 555-010-2000",
+      "regularOpeningHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:00 AM – 5:00 PM",
+          "Tuesday: 7:00 AM – 5:00 PM",
+          "Wednesday: 7:00 AM – 5:00 PM",
+          "Thursday: 7:00 AM – 5:00 PM",
+          "Friday: 7:00 AM – 5:00 PM",
+          "Saturday: 8:00 AM – 12:00 PM",
+          "Sunday: Closed"
+        ]
+      },
+      "primaryTypeDisplayName": { "text": "General Contractor", "languageCode": "en-US" }
+    }
+  ]
+}
